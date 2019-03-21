@@ -2,6 +2,7 @@
 set -eu
 
 echo "$PEM" > pcf.pem
+sed -i 's/^[ \t]*//g' pcf.pem
 chmod 0600 pcf.pem
 
 output_json=$(terraform output --json -state terraform-state/terraform.tfstate)
