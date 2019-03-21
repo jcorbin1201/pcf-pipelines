@@ -2,7 +2,6 @@
 set -eu
 
 echo "$PEM" > pcf.pem
-sed -i 's/^[ \t]*//g' pcf.pem
 chmod 0600 pcf.pem
 
 output_json=$(terraform output --json -state terraform-state/terraform.tfstate)
@@ -67,5 +66,5 @@ CREATE USER IF NOT EXISTS '$DB_NETWORKPOLICYSERVERDB_USERNAME' IDENTIFIED BY '$D
 GRANT ALL ON networkpolicyserver.* TO '$DB_NETWORKPOLICYSERVERDB_USERNAME'@'%';
 EOF
 
-echo "$PEMPASSPHRASE" | scp -i pcf.pem -o StrictHostKeyChecking=no databases.sql "ubuntu@${OPSMAN_DOMAIN_OR_IP_ADDRESS}:/tmp/."
-echo "$PEMPASSPHRASE" | ssh -i pcf.pem -o StrictHostKeyChecking=no "ubuntu@${OPSMAN_DOMAIN_OR_IP_ADDRESS}" "mysql -h $db_host -u $db_username -p$db_password < /tmp/databases.sql"
+scp -i pcf.pem -o StrictHostKeyChecking=no databases.sql "ubuntu@${OPSMAN_DOMAIN_OR_IP_ADDRESS}:/tmp/."
+ssh -i pcf.pem -o StrictHostKeyChecking=no "ubuntu@${OPSMAN_DOMAIN_OR_IP_ADDRESS}" "mysql -h $db_host -u $db_username -p$db_password < /tmp/databases.sql"
