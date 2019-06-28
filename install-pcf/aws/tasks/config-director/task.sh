@@ -195,7 +195,7 @@ EOF
 
 read -r -d '' security_configuration <<EOF
 {
-  "trusted_certificates": "",
+  "trusted_certificates": " ",
   "vm_password_type": "generate"
 }
 EOF
