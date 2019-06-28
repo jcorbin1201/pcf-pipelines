@@ -195,12 +195,12 @@ EOF
 
 read -r -d '' security_configuration <<EOF
 {
-  "trusted_certificates": "",
-  "opsmanager_root_ca_trusted_certs": "true"
   "vm_password_type": "generate"
 }
 EOF
 set -e
+  #"trusted_certificates": "",
+  #"opsmanager_root_ca_trusted_certs": "true"
 
 iaas_configuration=$(echo "$iaas_configuration" |jq --arg ssh_private_key "$PEM" '.ssh_private_key = $ssh_private_key')
 
