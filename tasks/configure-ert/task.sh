@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-cp terraform-cli/terraform /usr/local/bin/terraform
+cp terraform-cli/terraform /usr/bin/terraform
 
 export OPSMAN_DOMAIN_OR_IP_ADDRESS="opsman.$PCF_ERT_DOMAIN"
 
