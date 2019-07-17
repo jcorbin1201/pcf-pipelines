@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+cp terraform-cli/terraform /usr/local/bin/terraform
+
 export OPSMAN_DOMAIN_OR_IP_ADDRESS="opsman.$PCF_ERT_DOMAIN"
 
 source pcf-pipelines/functions/generate_cert.sh
