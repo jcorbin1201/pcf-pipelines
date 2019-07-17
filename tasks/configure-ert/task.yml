@@ -10,6 +10,7 @@ image_resource:
 inputs:
 - name: pcf-pipelines
 - name: terraform-state
+- name: terraform-cli
 
 run:
   path: pcf-pipelines/tasks/configure-ert/task.sh
