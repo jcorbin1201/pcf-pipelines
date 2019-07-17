@@ -5,7 +5,7 @@ function generate_cert () (
   local data=$(echo $domains | jq --raw-input -c '{"domains": (. | split(" "))}')
 
   local response=$(
-    om-linux \
+    om \
       --target "https://${OPSMAN_DOMAIN_OR_IP_ADDRESS}" \
       --client-id "${OPSMAN_CLIENT_ID}" \
       --client-secret "${OPSMAN_CLIENT_SECRET}" \
