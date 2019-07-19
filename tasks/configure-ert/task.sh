@@ -155,7 +155,7 @@ cf_resources=$(
       "mysql_monitor": {"instances": 0, "internet_connected": $internet_connected},
       "nfs_server": {"internet_connected": $internet_connected},
       "router": {"internet_connected": $internet_connected},
-      "tcp_router": {"internet_connected": $internet_connected},
+      "tcp_router": {"internet_connected": $internet_connected}
     }
 
     |
@@ -176,7 +176,7 @@ cf_resources=$(
       "nats": {"internet_connected": $internet_connected},
       "uaa": {"internet_connected": $internet_connected},
       "syslog_adapter": {"internet_connected": $internet_connected},
-      "syslog_scheduler": {"internet_connected": $internet_connected},
+      "syslog_scheduler": {"internet_connected": $internet_connected}
 
     else
       .
