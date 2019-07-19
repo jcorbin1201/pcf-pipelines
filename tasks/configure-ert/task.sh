@@ -144,13 +144,13 @@ cf_network=$(
 
 cf_resources=$(
   jq -n \
+    --arg pcf_ert_srt $pcf_ert_srt \
     --arg terraform_prefix $terraform_prefix \
     --arg iaas $pcf_iaas \
     --argjson internet_connected $INTERNET_CONNECTED \
     '
     {
       "backup_restore": {"internet_connected": $internet_connected},
-      "clock_global": {"internet_connected": $internet_connected},
       "cloud_controller": {"internet_connected": $internet_connected},
       "cloud_controller_worker": {"internet_connected": $internet_connected},
       "credhub": {"internet_connected": $internet_connected},
@@ -171,6 +171,15 @@ cf_resources=$(
       "tcp_router": {"internet_connected": $internet_connected},
       "uaa": {"internet_connected": $internet_connected}
     }
+
+    |
+
+    # CF ERT
+    if $pcf_ert_srt == "cf" then
+      . |= . + {"clock_global": {"internet_connected": $internet_connected}}
+    else
+      .
+    end
 
     |
 
