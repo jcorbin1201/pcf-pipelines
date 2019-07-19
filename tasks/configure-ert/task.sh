@@ -153,7 +153,6 @@ cf_resources=$(
       "backup_restore": {"internet_connected": $internet_connected},
       "ha_proxy": {"internet_connected": $internet_connected},
       "mysql_monitor": {"instances": 0, "internet_connected": $internet_connected},
-      "nfs_server": {"internet_connected": $internet_connected},
       "router": {"internet_connected": $internet_connected},
       "tcp_router": {"internet_connected": $internet_connected}
     }
@@ -174,6 +173,7 @@ cf_resources=$(
       "mysql": {"instances": 0, "internet_connected": $internet_connected},
       "mysql_proxy": {"instances": 0, "internet_connected": $internet_connected},
       "nats": {"internet_connected": $internet_connected},
+      "nfs_server": {"internet_connected": $internet_connected},
       "uaa": {"internet_connected": $internet_connected},
       "syslog_adapter": {"internet_connected": $internet_connected},
       "syslog_scheduler": {"internet_connected": $internet_connected}}
