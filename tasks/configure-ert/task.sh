@@ -162,7 +162,7 @@ cf_resources=$(
 
     # CF ERT
     if $pcf_ert_srt == "cf" then
-      . |= . + {"clock_global": {"internet_connected": $internet_connected}},
+      . |= . + {"clock_global": {"internet_connected": $internet_connected},
       "cloud_controller": {"internet_connected": $internet_connected},
       "cloud_controller_worker": {"internet_connected": $internet_connected},
       "credhub": {"internet_connected": $internet_connected},
@@ -176,7 +176,7 @@ cf_resources=$(
       "nats": {"internet_connected": $internet_connected},
       "uaa": {"internet_connected": $internet_connected},
       "syslog_adapter": {"internet_connected": $internet_connected},
-      "syslog_scheduler": {"internet_connected": $internet_connected}
+      "syslog_scheduler": {"internet_connected": $internet_connected}}
 
     else
       .
